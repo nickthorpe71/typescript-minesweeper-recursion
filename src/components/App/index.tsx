@@ -6,6 +6,7 @@ import { generateCells } from '../../utils';
 
 import './App.scss';
 
+//Look up FC
 const App: React.FC = () => {
   const [cells, setCell] = useState(generateCells());
 
