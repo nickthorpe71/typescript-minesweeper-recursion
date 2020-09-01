@@ -2,6 +2,8 @@
 
 .Button{
   @include borders;
+  @include buttons;
   width:30px;
   height:30px;
 }
+

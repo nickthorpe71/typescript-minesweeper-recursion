@@ -4,6 +4,7 @@ import { Cell, CellValue, CellState } from '../types';
 export const generateCells = (): Cell[][] => {
   const cells: Cell[][] = [];
 
+  // generating all cells
   for (let row = 0; row < MAX_ROWS; row++) {
     cells.push([]);
     for (let col = 0; col < MAX_COLS; col++) {
@@ -13,6 +14,9 @@ export const generateCells = (): Cell[][] => {
       })
     }
   }
+
+  // randomly place bombs
+
 
   return cells;
 };
