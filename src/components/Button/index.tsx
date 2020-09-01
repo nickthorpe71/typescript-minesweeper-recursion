@@ -11,7 +11,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ row, col, state, value }) => {
-  return <div className="Button" />
+  return <div className={`Button ${state === CellState.visible ? 'visible' : ''}`} />
 }
 
 export default Button;
