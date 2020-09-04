@@ -86,3 +86,11 @@ export const generateCells = (): Cell[][] => {
 
   return cells;
 };
+
+export const openCellsRecursively = (
+  cells: Cell[][],
+  rowParam: number,
+  colParam: number
+): Cell[][] => {
+
+};
