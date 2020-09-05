@@ -130,10 +130,15 @@ export const openCellsRecursively = (
   rowParam: number,
   colParam: number
 ): Cell[][] => {
-  let newCells = cells.slice();
   const currentCell = cells[rowParam][colParam];
 
-  newCells[rowParam][colParam].state = CellState.open;
+  if (currentCell.state === CellState.visible ||
+    currentCell.state === CellState.flagged) {
+    return cells;
+  }
+
+  let newCells = cells.slice();
+  newCells[rowParam][colParam].state = CellState.visible;
 
   const {
     topLeftCell,
@@ -207,4 +212,5 @@ export const openCellsRecursively = (
       newCells[rowParam + 1][colParam + 1].state = CellState.visible;
   }
 
+  return newCells;
 };  

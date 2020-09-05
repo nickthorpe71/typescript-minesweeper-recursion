@@ -65,6 +65,7 @@ const App: React.FC = () => {
     } else if (currentCell.value === CellValue.none) {
       // handle clicking a cell with no number or bomb
       newCells = openCellsRecursively(newCells, rowParam, colParam);
+      setCells(newCells);
     } else {
       // handle clicking on a number
       newCells[rowParam][colParam].state = CellState.visible;
