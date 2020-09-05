@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Button from '../Button';
 import NumberDisplay from '../NumberDisplay';
-import { generateCells } from '../../utils';
+import { generateCells, openCellsRecursively } from '../../utils';
 import { Cell, Face, CellState, CellValue } from '../../types';
 
 import './App.scss';
@@ -54,7 +54,7 @@ const App: React.FC = () => {
     }
 
     const currentCell = cells[rowParam][colParam];
-    const newCells = cells.slice(); // makes a copy of cells
+    let newCells = cells.slice(); // makes a copy of cells
 
     if (currentCell.state === CellState.flagged ||
       currentCell.state === CellState.visible)
@@ -64,7 +64,7 @@ const App: React.FC = () => {
       // TODO: Take care of bomb click
     } else if (currentCell.value === CellValue.none) {
       // handle clicking a cell with no number or bomb
-
+      newCells = openCellsRecursively(newCells, rowParam, colParam);
     } else {
       // handle clicking on a number
       newCells[rowParam][colParam].state = CellState.visible;
