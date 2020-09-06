@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import Button from '../Button';
+import DifficultyMenu from '../DifficultyMenu';
 import NumberDisplay from '../NumberDisplay';
 import { generateCells, openCellsRecursively } from '../../utils';
 import { Cell, Face, CellState, CellValue } from '../../types';
@@ -196,6 +197,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
+      {!live && <DifficultyMenu onClick={handleFaceClick} />}
       <div className="Header">
         <NumberDisplay value={bombCounter} />
         <div className="Face" onClick={handleFaceClick}>
@@ -206,6 +208,7 @@ const App: React.FC = () => {
         <NumberDisplay value={time} />
       </div>
       <div className="Body">{renderCells()}</div>
+      {/* need to make body scss frid property adjsut depending on difficulty */}
     </div>
   )
 }
