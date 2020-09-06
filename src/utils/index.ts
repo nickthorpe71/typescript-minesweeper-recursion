@@ -200,9 +200,9 @@ export const openCellsRecursively = (
   if (bottomCell?.state === CellState.open &&
     bottomCell.value !== CellValue.bomb) {
     if (bottomCell.value === CellValue.none)
-      newCells = openCellsRecursively(newCells, rowParam + 1, colParam - 1);
+      newCells = openCellsRecursively(newCells, rowParam + 1, colParam);
     else
-      newCells[rowParam + 1][colParam - 1].state = CellState.visible;
+      newCells[rowParam + 1][colParam].state = CellState.visible;
   }
   if (bottomRightCell?.state === CellState.open &&
     bottomRightCell.value !== CellValue.bomb) {
